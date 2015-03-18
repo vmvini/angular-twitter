@@ -1,3 +1,4 @@
+/* global myAppOptions */
 /**
 @toc
 1. setup - whitelist, appPath, html5Mode
@@ -32,7 +33,6 @@ config(['$routeProvider', '$locationProvider', '$twitterProvider' , function($ro
 
 	// start our own configuration - REPLACE THIS WITH YOUR OWN STUFF!
 
-
-	$twitterProvider.config(options , true);
+	$twitterProvider.config(myAppOptions , true);
 
 }]);
