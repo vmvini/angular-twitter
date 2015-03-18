@@ -1,11 +1,19 @@
 {
-	"name": "angular-twitter-demo",
-	"version": "0.0.0",
+	"name": "angular-twitter",
+	"version": "0.0.1",
 	"authors": [
 		"Joel Chu <joelchu@foxmail.com>"
 	],
-	"description": "Demo",
+	"main": "angular-twitter.min.js",
+	"repository": "git@github.com:joelchu/angular-twitter.git",
+	"homepage": "https://github.com/joelchu/angular-twitter",
+	"description": "AngularJS plus Twitter OAuth for desktop or Phonegap",
 	"keywords": [
+		"angular",
+		"angularjs",
+		"oauth",
+		"twitter",
+		"phonegap"
 	],
 	"license": "MIT",
 	"ignore": [
@@ -16,11 +24,13 @@
 		"tests"
 	],
 	"dependencies": {
-		"angular":"~1.2.0",
-		"angular-sanitize":"~1.2.0",
-		"angular-route":"~1.2.0",
-		"angular-touch":"~1.2.0"
+		"angular":"~1.3.0",
+		"silverorange-jsOAuth": "~1.4.0"
 	},
 	"devDependencies": {
+		"angular-sanitize":"~1.3.0",
+		"angular-route":"~1.3.0",
+		"angular-touch":"~1.3.0",
+		"angular-mocks": "~1.3.0"
 	}
 }

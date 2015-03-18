@@ -53,7 +53,8 @@ module.exports = function(grunt) {
 						Pikaday: false,
 						module: false,
 						forge: false
-					}
+					},
+					newcap: false
 				},
 				beforeconcat:   {
 					options: {
@@ -81,8 +82,8 @@ module.exports = function(grunt) {
 				},
 				build: {
 					files:  {},
-					src:    'twitter.js',
-					dest:   'twitter.min.js'
+					src:    'angular-twitter.js',
+					dest:   'angular-twitter.min.js'
 				}
 			}/*,
 			karma: {
@@ -93,15 +94,15 @@ module.exports = function(grunt) {
 				}
 			}*/
 		});
-		
-		
+
+
 		/**
 		register/define grunt tasks
 		@toc 6.
 		*/
 		// Default task(s).
 		grunt.registerTask('default', ['jshint:beforeconcatQ', 'uglify:build']);
-	
+
 	}
 	init({});		//initialize here for defaults (init may be called again later within a task)
 
