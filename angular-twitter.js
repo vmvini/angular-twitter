@@ -223,7 +223,7 @@
             };
 
         // you MUST config this one before you can use, the following are just placeholder
-        this.config = function(opt , newStorageMethods , debugMode)
+        this.config = function(opt  , debugMode , newStorageMethods)
         {
             // first check if you have provide anything
             if (angular.isUndefined(opt) || angular.equals(opt, {}) || angular.equals(opt , null)) {
@@ -243,12 +243,13 @@
             });
             // all pass
             options = opt;
+            // set debug mode
+            if (debugMode && typeof debugMode === 'boolean') {
+                debug = debugMode;
+            }
             // pass your own implementation of the storage methods
             if (!angular.isUndefined(newStorageMethods) && angular.isObject(newStorageMethods)) {
                 storageMethods = newStorageMethods;
-            }
-            if (debugMode && typeof debugMode === 'boolean') {
-                debug = debugMode;
             }
         };
 
