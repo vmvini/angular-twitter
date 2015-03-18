@@ -19,7 +19,7 @@
         var oauth; // It Holds the oAuth data request
         var requestParams; // Specific param related to request
         var self = this;
-
+        var cb; // child browser
         /**
          * wrapper methods to cut down those if/else debug code
          */
@@ -55,8 +55,9 @@
 
         /**
          * check if the user has logged in or not
+         * @params {object} cb childBrowser - if we pass this object then we are inside the phonegap environment
          */
-        this.init = function()
+        this.init = function(cb)
         {
             var defer = $q.defer();
             // start checking
@@ -77,13 +78,18 @@
                     oauth.get('https://api.twitter.com/oauth/request_token', function(data)
                     {
                         requestParams = data.text;
-                        successHandler(defer , requestParams);
-                        /* skip the open browser here for the moment
-                        cb.showWebPage('https://api.twitter.com/oauth/authorize?'+data.text); // This opens the Twitter authorization / sign in page
-                        cb.onLocationChange = function(loc){
-                            Twitter.success(loc);
-                        }; // Here will will track the change in URL of ChildBrowser
-                        */
+
+                        if (!angular.isUndefined(cb)) {
+                            cb.showWebPage('https://api.twitter.com/oauth/authorize?' + requestParams); // This opens the Twitter authorization / sign in page
+                            cb.onLocationChange = function(loc)
+                            {
+                                self.loginSuccess(loc);
+                            }; // Here will will track the change in URL of ChildBrowser
+                        }
+                        else {
+                            // just resolve it
+                            successHandler(defer , requestParams);
+                        }
                     }, callbackErrorHandler(defer , 'CALL TWITTER OPEN ERROR'));
                 }
             });
@@ -183,6 +189,24 @@
             },callbackErrorHandler(defer , 'SEND TWEET ERROR'));
         };
 
+        /**
+         * when using this in phonegap, we call this one instead of the normal init method
+         */
+        this.phonegapInit = function()
+        {
+            document.addEventListener("deviceready", function()
+            {
+                if (!window.plugins.childBrowser) {
+                    throw 'require childBrowser plugin install before using this module.';
+                }
+                if (angular.isUndefined(cb)) {
+                    cb = window.plugins.childBrowser;
+                }
+                // we don't need to wait for the resolve etc
+                self.init(cb);
+
+            }, false);
+        };
 
     }; // End Of - TwitterCls
 
