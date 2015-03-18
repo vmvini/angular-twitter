@@ -1,0 +1,28 @@
+{
+	"name": "angular-twitter",
+	"version": "1.0.0",
+	"authors": [
+		"Joel Chu <joelchu@foxmail.com>"
+	],
+	"description": "AngularJS plus Twitter login",
+	"keywords": [
+		"angular",
+		"angularJS",
+		"twitter",
+		"mobile",
+		"login"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"angular":"~1.2.0"
+	},
+	"devDependencies": {
+	}
+}
