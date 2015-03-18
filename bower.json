@@ -1,16 +1,19 @@
 {
 	"name": "angular-twitter",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"authors": [
 		"Joel Chu <joelchu@foxmail.com>"
 	],
-	"description": "AngularJS plus Twitter login",
+	"main": "angular-twitter.min.js",
+	"repository": "git@github.com:joelchu/angular-twitter.git",
+	"homepage": "https://github.com/joelchu/angular-twitter",
+	"description": "AngularJS plus Twitter plus OAuth",
 	"keywords": [
 		"angular",
-		"angularJS",
+		"angularjs",
+		"oauth",
 		"twitter",
-		"mobile",
-		"login"
+		"phonegap"
 	],
 	"license": "MIT",
 	"ignore": [
@@ -21,8 +24,13 @@
 		"tests"
 	],
 	"dependencies": {
-		"angular":"~1.2.0"
+		"angular":"~1.3.0",
+		"silverorange-jsOAuth": "~1.4.0"
 	},
 	"devDependencies": {
+		"angular-sanitize":"~1.3.0",
+		"angular-route":"~1.3.0",
+		"angular-mocks": "~1.3.0",
+		"topcoat": "git@github.com:topcoat/topcoat.git"
 	}
 }
