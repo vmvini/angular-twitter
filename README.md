@@ -1,25 +1,42 @@
 # AngularJS plus Twitter login
 
-[TODO - brief summary]
+
+Wrapping several auth call into one angular module. Can be use with desktop or phonegap.
+
 
 ## Demo
-http://joelchu.github.io/angular-twitter/
+
+See gh-pages branch
 
 ## Dependencies
 - required:
-	[TODO]
+
+	angular.js (1.3.X +)
+
+	jsOAuth.js (1.4.X +)
+
+
 - optional
-	[TODO]
+
+	see bower.json
 
 See `bower.json` and `index.html` in the `gh-pages` branch for a full list / more details
 
 ## Install
 1. download the files
 	1. Bower
-		1. add `"angular-twitter": "latest"` to your `bower.json` file then run `bower install` OR run `bower install angular-twitter`
+		1. add `"angular-twitter": "git@github.com:joelchu/angular-twitter.git"` to your `bower.json` file then run `bower install` OR run `bower install angular-twitter` (not register with bower at the moment)
+		2. Make sure you have "silverorange-jsOAuth": "~1.4.0" and of course, angular 1.3.0+
+
 2. include the files in your app
-	1. `twitter.min.js`
-3. include the module in angular (i.e. in `app.js`) - `joelchu.angular-twitter`
+	1. `angular-twitter.min.js`
+
+3. include the module in angular (i.e. in `app.js`) - `nbTwitter`
+
+4. This module require you MUST provide a config to work (go to your twitter app page and set it up)
+	1. 3 required fields `consumerKey` , `consumerSecret`  and `callbackUrl`
+	2. Then inject the service into your controller via `$nbTwitter`
+
 
 See the `gh-pages` branch, files `bower.json` and `index.html` for a full example.
 
