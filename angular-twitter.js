@@ -6,7 +6,9 @@
     This is inspired by http://www.oodlestechnologies.com/blogs/Twitter-integration-on-PhoneGap-using-ChildBrowser-and-OAuth-for-iOS-and-Android-Platforms
     And package it to use with AngularJS
 
-    Switchable between Desktop or Phonegap via the `env` options
+    ~Switchable between Desktop or Phonegap via the `env` options~
+
+    19/3/2015 - Using different method to suit your need. In phonegap environment call the obj.phonegapInit() instead
 
 @toc
 
@@ -57,7 +59,7 @@
          * check if the user has logged in or not
          * @params {object} cb childBrowser - if we pass this object then we are inside the phonegap environment
          */
-        this.init = function(cb)
+        this.connect = function(cb)
         {
             var defer = $q.defer();
             // start checking
@@ -192,7 +194,7 @@
         /**
          * when using this in phonegap, we call this one instead of the normal init method
          */
-        this.phonegapInit = function()
+        this.phonegapConnect = function()
         {
             document.addEventListener("deviceready", function()
             {
@@ -203,7 +205,7 @@
                     cb = window.plugins.childBrowser;
                 }
                 // we don't need to wait for the resolve etc
-                self.init(cb);
+                self.connect(cb);
 
             }, false);
         };
@@ -214,7 +216,7 @@
     /**
      * create the angular module and service
      */
-    angular.module('nbTwitter', []).provider('$twitter', ['$q' , '$http' , function($q , $http)
+    angular.module('nbTwitter', []).provider('$nbTwitter', ['$q' , '$http' , function($q , $http)
     {
         var options = {
                 'consumerKey': 'xxxxxxxxxxxxxxx', // YOUR Twitter CONSUMER_KEY
