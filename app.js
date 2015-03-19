@@ -11,7 +11,7 @@ angular.module('myApp', [
 	'ngSanitize',
 	'nbTwitter'
 ]).
-config(['$routeProvider', '$locationProvider', '$twitterProvider' , function($routeProvider, $locationProvider, $twitterProvider) {
+config(['$routeProvider', '$locationProvider', '$nbTwitterProvider' , function($routeProvider, $locationProvider, $nbTwitterProvider) {
 	/**
 	setup - whitelist, appPath, html5Mode
 	@toc 1.
@@ -33,6 +33,6 @@ config(['$routeProvider', '$locationProvider', '$twitterProvider' , function($ro
 
 	// start our own configuration - REPLACE THIS WITH YOUR OWN STUFF!
 
-	$twitterProvider.config(myAppOptions , true);
+	$nbTwitterProvider.config(myAppOptions , true);
 
 }]);
